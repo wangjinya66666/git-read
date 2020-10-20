@@ -1,0 +1,86 @@
+{
+  "id": "2113153",
+  "name": "read",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "16063953",
+      "name": "用户信息",
+      "font_class": "ic_account",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "9559050",
+      "name": "下",
+      "font_class": "ziyuan1",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "9559054",
+      "name": "上",
+      "font_class": "ziyuan2",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "2668432",
+      "name": "箭头",
+      "font_class": "jiantou",
+      "unicode": "e64a",
+      "unicode_decimal": 58954
+    },
+    {
+      "icon_id": "9559078",
+      "name": "查看详情",
+      "font_class": "ziyuan",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "1277697",
+      "name": "首页",
+      "font_class": "shouye",
+      "unicode": "e653",
+      "unicode_decimal": 58963
+    },
+    {
+      "icon_id": "1418240",
+      "name": "星",
+      "font_class": "xing",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "8842186",
+      "name": "返回",
+      "font_class": "fanhui-xianxing",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "2570180",
+      "name": "用户",
+      "font_class": "yonghu-tianchong",
+      "unicode": "e670",
+      "unicode_decimal": 58992
+    },
+    {
+      "icon_id": "9097250",
+      "name": "书架",
+      "font_class": "shujia",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "9743018",
+      "name": "搜索",
+      "font_class": "sousuo1",
+      "unicode": "e67e",
+      "unicode_decimal": 59006
+    }
+  ]
+}
