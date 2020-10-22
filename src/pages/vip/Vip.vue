@@ -42,7 +42,7 @@ export default {
     mounted(){
         this.axios.get('ranking/57eb86f0ef9e5a8f20543d7d').then(res=>{
             this.msg=res.data.ranking.books;
-            console.log('Vip数据',this.msg);
+            // console.log('Vip数据',this.msg);
         }).catch(err=>{
             console.log(err);
         })
@@ -66,7 +66,7 @@ export default {
        flex-wrap: wrap;
        box-sizing: border-box;
        width: 100%;
-       padding:0.3rem;
+       padding:0 0.3rem 0.4rem 0.3rem;;
    }
    li img{
         width: 1.24rem;

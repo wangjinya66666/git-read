@@ -24,11 +24,6 @@ const store = new Vuex.Store({
                 return value.id == did
             })
             this.state.state = this.state.books.splice(item, 1);
-            // state.books.filter((value, index) => {
-            //     if (value.id == did) {
-            //         this.state.books = this.state.books.splice(index, 1);
-            //     }
-            // }) //无法删除，采用上面方法
         }
     },
 })

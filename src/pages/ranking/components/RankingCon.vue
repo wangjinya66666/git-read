@@ -1,16 +1,23 @@
 <template>
-  <div class="b-right">
-      <ul >
-                   <router-link :to="'/detail/'+value._id" tag="li" class="r-li" v-for="(value,index) in data" :key="index">
-                       <img :src="'http://statics.zhuishushenqi.com'+value.cover">
-                       <div>
-                           <h2>{{value.title}}</h2>
-                           <p class="text">{{value.shortIntro}}</p>
-                           <p class="authod">{{value.author}}</p>
-                       </div>
-                   </router-link>
+  <div class="r-bottom">
+      <ul class="b-left">
+         <router-link :to="'/ranking/'+msg.rankingcon+'/'+value._id" tag="li" v-for="(value,index) in data" :key="index">{{value.shortTitle}}</router-link>
       </ul>
+      <div class="b-right">
+      <ul >
+         <router-link :to="'/detail/'+val._id" tag="li" class="r-li" v-for="(val,index) in books" :key="index">
+             <img v-lazy="'http://statics.zhuishushenqi.com'+val.cover" >
+             <!-- <img :src="'http://statics.zhuishushenqi.com'+val.cover"> -->
+             <div>
+                 <h2>{{val.title}}</h2>
+                 <p class="text">{{val.shortIntro}}</p>
+                 <p class="authod">{{val.author}}</p>
+             </div>
+         </router-link>
+      </ul>
+      </div>
   </div>
+  
 </template>
 
 <script>
@@ -19,18 +26,25 @@ export default {
     data(){
         return{
             msg:null,
-            data:null
+            data:null,
+            books:null,
+            count:0
         }
     },
     watch:{
         $route:{
             handler(newval){
-                this.msg=newval.params.rankingcon
-                this.axios.get('book/by-categories?gender='+(this.msg=='male'?'male&type=hot&major=%E7%8E%84%E5%B9%BB&minor=&':this.msg=='female'?'female&type=hot&major=%E7%A7%91%E5%B9%BB&minor=&':'press&type=hot&major=%E5%87%BA%E7%89%88%E5%B0%8F%E8%AF%B4&minor=&')+'start=0&limit=20').then(res=>{
-                    this.data=res.data.books;
-                    // console.log('排行榜渲染',this.data)
+                this.msg=newval.params
+                // console.log('排行榜地址参数：',this.msg)
+                this.axios.get('ranking/gender').then(res=>{
+                    this.data=res.data[this.msg.rankingcon];
+                    // console.log('排行榜小分类渲染',this.data)
                 }).catch(err=>{
                     console.log(err)
+                })
+                this.axios.get('ranking/'+this.msg.small).then(res=>{
+                    this.books=res.data.ranking.books;
+                    // console.log('排行榜全部图书全部图书',this.books);
                 })
             },
             deep: true,
@@ -41,6 +55,27 @@ export default {
 </script>
 
 <style scoped>
+ .r-bottom .router-link-exact-active{
+     color: #ee4745;
+
+}
+
+ 
+ .r-bottom{
+        width: 100%;
+        display: flex;
+    }
+    .b-left{
+        width: 1.56rem;
+        border-right: 1px solid #EBEBEB;
+        color: #8a8a8f;
+    }
+    .b-left li{
+        box-sizing: border-box;
+        margin: 0 0.28rem;
+        line-height: 1.24rem;
+        border-bottom: 1px solid #EBEBEB;
+    }
      .b-right{
         flex: 1;
     }
@@ -54,7 +89,7 @@ export default {
     }
     .r-li div{
         text-align:justify;
-        /* flex: 1; */
+        flex: 1;
     }
     .r-li div h2{
         font-size: 0.32rem;

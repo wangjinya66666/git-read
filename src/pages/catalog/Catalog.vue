@@ -24,7 +24,7 @@ export default {
         }
     },
     mounted(){
-        console.log(this.$route.params.datailId)
+        // console.log(this.$route.params.datailId)
         this.axios.get('atoc/568fef99adb27bfb4b3a58dc?view=chapters').then(res=>{
             this.msg=res.data.chapters;
             // console.log('章节目录',this.msg);

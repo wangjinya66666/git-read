@@ -7,8 +7,7 @@
           <input type="text" placeholder="铁血文明" v-model="inputVal" @input="inputFun">
           <i class="iconfont">&#xe67e;</i>
       </div>
-      <ul class="get-data">
-          
+      <ul class="get-data">          
           <li v-for="(value,index) in getData" :key="index"><i class="iconfont">&#xe61f;</i>{{value}}</li>
       </ul>
   </div>

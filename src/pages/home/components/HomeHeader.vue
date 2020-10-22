@@ -12,7 +12,7 @@
               <img src="https://m.txtbook.com.cn/Public/skin/a2/Home/public/images/header_ico1.png" >
           </router-link>
           <router-link to="/sign" tag="div" class="iconts">
-               <img src="https://m.txtbook.com.cn/Public/skin/a2/Home/public/images/header_ico1.png" >
+              <img src="../../../assets/image/user.png" >
           </router-link>
       </div>
   </div>

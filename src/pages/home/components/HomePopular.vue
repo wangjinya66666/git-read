@@ -32,11 +32,11 @@ export default {
   watch:{
       $route:{
           handler(newval){
-              console.log('最热榜立即执行：',newval.params.sex);
+            //   console.log('最热榜立即执行：',newval.params.sex);
               this.title=newval.params.sex;
               this.axios.get( this.title=='male'?'ranking/54d42d92321052167dfb75e3':'ranking/54d43437d47d13ff21cad58b').then(res=>{
               this.msg=res.data.ranking.books;
-                  console.log('追书最热榜',this.msg);
+                //   console.log('追书最热榜',this.msg);
               }).catch(err=>{
                   console.log(err)
               })

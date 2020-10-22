@@ -5,17 +5,11 @@
        </detail-header>
        <div class="r-contaniner">
            <ul class="r-header">
-             <router-link to="/ranking/male"  tag="li">男频</router-link>  
-             <router-link to="/ranking/female"  tag="li">女频</router-link>  
-             <router-link to="/ranking/press"  tag="li">出版</router-link>  
+             <router-link to="/ranking/male/54d42d92321052167dfb75e3"  tag="li">男频</router-link>  
+             <router-link to="/ranking/female/54d43437d47d13ff21cad58b"  tag="li">女频</router-link>  
+             <router-link to="/ranking/picture/5a322ef4fc84c2b8efaa8335"  tag="li">漫画</router-link>  
            </ul>
-           <div class="r-bottom">
-               <ul class="b-left">
-                   <li>月榜</li>
-                   <li>周榜</li>
-               </ul>
-               <router-view></router-view>
-           </div>
+           <router-view></router-view>
        </div>
     </div>
 </template>
@@ -32,7 +26,7 @@ export default {
 </script>
 
 <style scoped>
-    .router-link-active{
+    .r-header .router-link-active{
         color: #ee4745;
         border-bottom: 1px solid #ee4745;
     }
@@ -49,21 +43,7 @@ export default {
     .r-header li{
         flex: 33.33%;
     }
-    .r-bottom{
-        width: 100%;
-        display: flex;
-    }
-    .b-left{
-        width: 1.56rem;
-        border-right: 1px solid #EBEBEB;
-        color: #8a8a8f;
-    }
-    .b-left li{
-        box-sizing: border-box;
-        margin: 0 0.28rem;
-        line-height: 1.24rem;
-        border-bottom: 1px solid #EBEBEB;
-    }
+   
 
 
 </style>

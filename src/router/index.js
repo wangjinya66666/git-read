@@ -57,9 +57,9 @@ const routes = [{
     path: '/ranking', //排行榜
     name: 'Ranking',
     component: Ranking,
-    redirect: '/ranking/male',
+    redirect: '/ranking/male/54d42d92321052167dfb75e3',
     children: [{
-        path: ':rankingcon',
+        path: ':rankingcon/:small',
         component: RankingCon
     }]
 }, {
