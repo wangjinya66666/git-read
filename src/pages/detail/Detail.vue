@@ -111,17 +111,18 @@ export default {
             this.clicka=true;
         }
     },
-    // mounted(){
-    //     console.log(this.$route.params.datailId)
-    //     this.axios.get('book/'+this.$route.params.datailId).then(res=>{
-    //                 this.msg=res.data;
-    //     }).catch(err=>{
-    //         console.log(err);
-    //     })
-    // },
     watch:{
         $route:{
             handler(newval){
+                // console.log('vuex中的数据',this.$store.state.books)
+                // console.log('详情页id',this.$route.params.datailId)
+                const flg=this.$store.state.books.findIndex(value=>{
+                    return value.id===this.$route.params.datailId
+                })
+                // console.log('8888',flg)
+                if(flg!==-1){
+                    this.clicka=true;
+                }
                 // console.log('详情页',newval.params.datailId);
                 this.axios.get('book/'+newval.params.datailId).then(res=>{
                     this.msg=res.data;

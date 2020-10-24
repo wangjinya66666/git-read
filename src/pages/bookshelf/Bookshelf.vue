@@ -31,7 +31,7 @@ export default {
         toDleter(e){
             const did=e.target.dataset.id;
             this.$store.commit('toDleter',did)
-            console.log(did)
+            // console.log(did)
         }
     }
 }

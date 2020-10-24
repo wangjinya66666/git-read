@@ -107,19 +107,19 @@ router.beforeEach((to, from, next) => {
 
     const nextRoute = ['Home', 'Vip', 'Personal', 'Recharge'];
     let isLogin = localStorage.getItem('login'); // 是否登录
-    console.log('是否登录：', isLogin)
-        // 未登录状态；当路由到nextRoute指定页时，跳转至login
-    console.log(nextRoute.indexOf(to.name))
+    // console.log('是否登录：', isLogin)
+    // 未登录状态；当路由到nextRoute指定页时，跳转至login
+    // console.log(nextRoute.indexOf(to.name))
     if (nextRoute.indexOf(to.name) !== -1) { //数组中的存在时候
         if (!isLogin) { //!isLogin为true执行登录页面跳转
-            console.log('未登录跳转到登录页面')
+            // console.log('未登录跳转到登录页面')
             router.push({ name: 'Sign' })
         }
     }
     // 已登录状态；当路由到login时，跳转至home 
     if (to.name === 'Sign') {
         if (isLogin) {
-            console.log('登录跳转到用户页面')
+            // console.log('登录跳转到用户页面')
             router.push({ name: 'Personal' });
         }
     }

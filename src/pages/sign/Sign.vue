@@ -61,7 +61,7 @@ export default {
           this.randomNum(0, this.identifyCodes.length)
          ];
         }
-        console.log(this.identifyCode);
+        // console.log(this.identifyCode);
       },
       created() {
         //初始化验证码
@@ -97,7 +97,7 @@ export default {
           this.identifyCode = "";
           this.makeCode(this.identifyCodes, 4); //点击生成验证码
           this.disableds=false;
-          console.log(this.disableds)
+          // console.log(this.disableds)
           this.count=10;
           const time=setInterval(()=>{
             this.count--;
