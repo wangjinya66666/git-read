@@ -6,7 +6,7 @@
               <p>{{value.name}}</p>
           </router-link>
       </ul>
-      <div class="recording"><span>最近阅读</span><span>暂无记录</span></div>
+      <router-link tag="div" to="/bookshelf" class="recording"><span>最近阅读</span></router-link>
       <div class="rect"></div>
   </div>
 </template>
@@ -32,7 +32,7 @@ export default {
           },{
               url:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAMAAAAKE/YAAAAAM1BMVEVHcEz26/L36/L26/H26/H26/H36/H35ev26/H26/L/e4L6g4f/ubv/gon7i4/8q7D+ho3ioMi9AAAACnRSTlMAhUP/IeJf/ajGzgk+aQAABDBJREFUeNrtndtyJCEIhgcVxUym3fd/2s2mctydzDQ0CmTz36RqKhdfUQhoK5xOmiqpAlDviK3l3LBh7wRQUzl5VElPsPmGnuBdoZdKmHcJqboAT3uB38GTLXGlLBLVaMR23AUwHxTCWv9OPauor3PvqoT8bO41XlIxq2oBtjbyAuzU8xRN9O1CeZpoUiSpLU9Ugxlm7nmyurqxIS8QBDOzvrHnevMnz1aLfpQXikK5hqaLJMyL1Q5nmpoNVANEOuXYR9lIFJD5AHXPhuoBmYXUxswiasrmooDMbGrILgTu8+DB3JiyG+2uQwr6gcYSJdgJAh9lV6JQi5CxGEvzBt1KLIfe6daQHepOjinZpUo057jrIJCdCiJFjh0RhLJbUYA6aX/l1D1D9yD5e082R9/QGNDQ102N3qExoKGvmbr7h8ZQMfqrWN0jQPcQJentEhViQMPReNcUdGgpsuNdG9tZQdto8qhHXOSzlh542B8rVCbzdlbUxqIWe8c4q2rI/IMXpNtZWU0Uqk0NzTS10Ds2behN4h/M2HFWlyR+YCRolNUdttAv9UeNBV1FRzTG0CQqloyhUVRKG0M/O3WKBp0k9f+mLv5OwPFR6dcrEaNBI7ta8iDJPrypi70n55/SPKiLfWZT40FXwYmHOTQIIt4PtASaBCeP5tA9JjTGg8aY0C0edBOUHj/QEuj8A73MPdp/FvIuN/SZ6tpvFtCX8XhT443x/T/HRQlamsbvMD8RviKNK78Z1R6Pd/WKdO23g9AUD5rEOxdD9wD5dmvsZP7wn0Nr5xJyYxvyCKHEgy4nfh43h5bcqbGG7pKjXkHtoQpNkrse3NpDGxokny+4yUUbOkk+FHHTuDZ0kXySM4ZG0cdPY/cg0Wdmdu2hC11FH/SN43QRXZ2whUbZ9UdbaJDd6LWFfrvZ22yhL6yDGtkFyE0bemMHPH7QG9rQgx3w+P7RtKGbxDu4/jHsDE3iFwFtWDF/fhXAzC/DiBkPXa9vY/t1OayNe+kb4j9kiHEpiL7D45wIr3P6KeA7qHSK9+IMIz6iTOHeBX/1MjgFNHTMJ9i+02IJ17/hVgeH4vay7K3ORm7DXv1uTUmcdvi41x+ohnMOp4X1/U5d/iLInp5o7rL5ru5zzlLMzu6EEVvPxWzy5ylaM5pRp1CL0FmOYTaihkCBwxW1oHW2eT4XtaCmgMzG1OJW3xDKn82pD7WvryHi8z+50SCjHx/JsL56Qo35KD1I2DBcjmrTc9ZNGkHFWVZlUZ5RHmS1YuJPU590Nt/YU+aF1amePW2gHDT/QWOdj9DcmZQz5vYtmEepjb1ohGZSdJKFQ20LqSzJRovnBx+fVtotJvCmI6NsEcyGHQu5DYlf3BuYftLBxwTvBH3Xwmzd2sR/W7zCrSHeSFB9jnd/nUdP/c9EesSnPzRjGv1vvGbJhXBvG7oAAAAASUVORK5CYII=',
               name:'充值',
-              path:'/bookshelf'
+              path:'/recharge'
           }
       ]
       }

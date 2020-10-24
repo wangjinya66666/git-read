@@ -17,59 +17,109 @@
         <input type="text" class="phone" placeholder="请输入手机号" v-model="phone">
         <span v-if="count==0" :class="{obtain:phoneRight()}" @click="openIntem">获取验证码</span>
         <span v-else>已发送{{count}}s</span>
-        <input type="text" class="verification">
+        <!--验证码组件-->
+        <div class="Captchas">
+           <Sidentify :identifyCode="identifyCode" class="Captcha" />
+           <input type="text" class="verification" v-model="verification">
+        </div>
       </form>
       <!-- 账号登录 -->
       <form class="account" :class="mode==false?'showMode':''" >
         <input type="text" placeholder="请输入账号">
         <input type="password">
       </form>      
-      <a class="loginBut">登录</a>
+      <button class="loginBut" @click="loginBut" :disabled="disableds" :class="disableds==false?'selectBck':''">登录</button>
       <!-- <div class="tags">快速注册<span class="splice">|</span>忘记密码</div> -->
   </div>
 </template>
 
 <script>
+import Sidentify from "../sign/components/Sidentify.vue"
 export default {
     name:'Sign',
     data(){
       return{
         mode:true,
         phone:'',
-        count:0
+        count:0,
+        identifyCodes: "1234567890",
+        identifyCode: "",
+        verification:null,
+        disableds:true
       }
     },
     components:{
+      Sidentify
     },
     methods:{
-        clickHref(){
-           this.$router.go(-1);
-        },
-        accountClick(){
-          this.mode=false
-        },
-        codeClick(){
-          this.mode=true
-        },
-        phoneRight(){ //输入是否为手机号
-          return /^[1][3,4,5,6,7,8][0-9]{9}$/.test(this.phone);
-        },
-        openIntem(){ //倒计时
-          if(this.phoneRight){
-            this.count=60;
-            const time=setInterval(()=>{
-              this.count--;
-              if(this.count<=0){
-                clearInterval(time);
-              }
-            },1000)
-          }
+      randomNum(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+      },
+      makeCode(o, l) {
+         for (let i = 0; i < l; i++) {
+          this.identifyCode += this.identifyCodes[
+          this.randomNum(0, this.identifyCodes.length)
+         ];
         }
+        console.log(this.identifyCode);
+      },
+      created() {
+        //初始化验证码
+        this.refreshCode();
+      },
+      mounted() {
+        this.identifyCode = "";
+        this.makeCode(this.identifyCodes, 4);
+      },
+      loginBut(){ //点击登录跳转
+        if(this.identifyCode==this.verification){
+          localStorage.setItem('login',true)
+          alert('登录成功')
+          this.$router.push('/personal');
+        }else{
+          alert('手机号或者验证码错误');
+        }
+      },
+      clickHref(){ //返回按钮
+         this.$router.go(-1);
+      },
+      accountClick(){
+        this.mode=false
+      },
+      codeClick(){
+        this.mode=true
+      },
+      phoneRight(){ //输入是否为手机号
+        return /^[1][3,4,5,6,7,8][0-9]{9}$/.test(this.phone);
+      },
+      openIntem(){ //倒计时
+        if(this.phoneRight()){
+          this.identifyCode = "";
+          this.makeCode(this.identifyCodes, 4); //点击生成验证码
+          this.disableds=false;
+          console.log(this.disableds)
+          this.count=10;
+          const time=setInterval(()=>{
+            this.count--;
+            if(this.count<=0){
+              clearInterval(time);
+            }
+          },1000)
+        }
+      }
     }
 }
 </script>
 
 <style scoped>
+.Captchas{
+  position: relative;
+}
+.Captcha{
+  position: absolute;
+  right: 15%;
+  top: 0.12rem;
+}
 .account,
 .code{
   display: none;
@@ -115,8 +165,12 @@ export default {
    line-height: 0.8rem;
    margin: 0.8rem 0 0.2rem 0;
    border-radius: 0.4rem;
-   background: #ea4136;
+   /* background: #ea4136; */
+   background: #999;
    color: #fff;
+ }
+ .selectBck{
+   background: #ea4136;
  }
  .tags{
    color: #999;
